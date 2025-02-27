@@ -1,0 +1,209 @@
+[
+  {
+    "id": "1",
+    "text": "Make your bed",
+    "frequency": "daily",
+    "xp": 2,
+    "time": 5,
+    "energy": 2,
+    "completed": false
+  },
+  {
+    "id": "2",
+    "text": "Take out trash",
+    "frequency": "weekly",
+    "xp": 7,
+    "time": 5,
+    "energy": 3,
+    "completed": false
+  },
+  {
+    "id": "3",
+    "text": "Do Laundry",
+    "frequency": "weekly",
+    "xp": 10,
+    "time": 90,
+    "energy": 5,
+    "completed": false
+  },
+  {
+    "id": "4",
+    "text": "Fold Laundry",
+    "frequency": "weekly",
+    "xp": 13,
+    "time": 30,
+    "energy": 10,
+    "completed": false
+  },
+  {
+    "id": "5",
+    "text": "Put Away Folded Laundry",
+    "frequency": "weekly",
+    "xp": 15,
+    "time": 10,
+    "energy": 5,
+    "completed": false
+  },
+  {
+    "id": "6",
+    "text": "Quick Clean",
+    "frequency": "daily",
+    "xp": 6,
+    "time": 60,
+    "energy": 10,
+    "completed": false
+  },
+  {
+    "id": "7",
+    "text": "Go to Work",
+    "frequency": "daily",
+    "xp": 10,
+    "time": 480,
+    "energy": 40,
+    "completed": false
+  },
+  {
+    "id": "8",
+    "text": "Deep Clean",
+    "frequency": "biweekly",
+    "xp": 18,
+    "time": 240,
+    "energy": 20,
+    "completed": false
+  },
+  {
+    "id": "9",
+    "text": "Hand Wash Dishes",
+    "frequency": "daily",
+    "xp": 5,
+    "time": 30,
+    "energy": 5,
+    "completed": false
+  },
+  {
+    "id": "10",
+    "text": "Load Dishwasher",
+    "frequency": "daily",
+    "xp": 3,
+    "time": 15,
+    "energy": 3,
+    "completed": false
+  },
+  {
+    "id": "11",
+    "text": "Put Clean and Dried Dishes Away",
+    "frequency": "daily",
+    "xp": 7,
+    "time": 15,
+    "energy": 5,
+    "completed": false
+  },
+  {
+    "id": "12",
+    "text": "Cook A Meal",
+    "frequency": "daily",
+    "xp": 10,
+    "time": 45,
+    "energy": 10,
+    "completed": false
+  },
+  {
+    "id": "13",
+    "text": "Make a Quick Meal",
+    "frequency": "daily",
+    "xp": 5,
+    "time": 20,
+    "energy": 5,
+    "completed": false
+  },
+  {
+    "id": "14",
+    "text": "Buy Groceries",
+    "frequency": "weekly",
+    "xp": 15,
+    "time": 120,
+    "energy": 15,
+    "completed": false
+  },
+  {
+    "id": "15",
+    "text": "Call Parents",
+    "frequency": "weekly",
+    "xp": 12,
+    "time": 30,
+    "energy": 5,
+    "completed": false
+  },
+  {
+    "id": "16",
+    "text": "Dust Off Air Vents (external)",
+    "frequency": "monthly",
+    "xp": 22,
+    "time": 30,
+    "energy": 10,
+    "completed": false
+  },
+  {
+    "id": "17",
+    "text": "Pay Bills",
+    "frequency": "monthly",
+    "xp": 20,
+    "time": 30,
+    "energy": 3,
+    "completed": false
+  },
+  {
+    "id": "18",
+    "text": "Change Bed Sheets",
+    "frequency": "weekly",
+    "xp": 15,
+    "time": 20,
+    "energy": 8,
+    "completed": false
+  },
+  {
+    "id": "19",
+    "text": "Change Smoke Alarm Batteries",
+    "frequency": "yearly",
+    "xp": 10,
+    "time": 10,
+    "energy": 2,
+    "completed": false
+  },
+  {
+    "id": "20",
+    "text": "Exercise",
+    "frequency": "daily",
+    "xp": 10,
+    "time": 60,
+    "energy": 15,
+    "completed": false
+  },
+  {
+    "id": "21",
+    "text": "Car Wash",
+    "frequency": "biweekly",
+    "xp": 16,
+    "time": 30,
+    "energy": 5,
+    "completed": false
+  },
+  {
+    "id": "22",
+    "text": "Clean Car Interior",
+    "frequency": "biweekly",
+    "xp": 20,
+    "time": 60,
+    "energy": 15,
+    "completed": false
+  },
+  {
+    "id": "23",
+    "text": "Fill Up Car Gas",
+    "frequency": "weekly",
+    "xp": 5,
+    "time": 10,
+    "energy": 2,
+    "completed": false
+  }
+]
