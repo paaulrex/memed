@@ -1,6 +1,8 @@
 import { create } from "zustand";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import tasksData from "../data/tasks.json";
+import randomEvents from "../data/randomEvents.json";
+import { Alert } from "react-native";
 
 interface GameState {
   energy: number;
@@ -14,6 +16,7 @@ interface GameState {
   addXP: (amount: number) => void;
   spendEnergy: (amount: number) => boolean;
   deductTime: (minutes: number) => boolean;
+  triggerRandomEvent: (taskId?: string, forceEndDayEvent?: boolean) => void;
   endDay: () => Promise<void>;
   initializeGameDate: () => Promise<void>;
   progressDay: () => Promise<void>;
@@ -159,62 +162,85 @@ export const useGame = create<GameState>((set, get) => ({
     return true;
   },
 
+  triggerRandomEvent: (taskId?: string, forceEndDayEvent = false) => {
+    // Filter events based on whether it's an end-day event or task-based trigger
+    const filteredEvents = randomEvents.filter(event =>
+        forceEndDayEvent ? ["12", "16"].includes(event.id) :
+        event.triggerTaskIds.includes(taskId || "") || event.triggerTaskIds.includes("ALL")
+    );
+
+    if (filteredEvents.length === 0) return;
+
+    // Apply probability check
+    const possibleEvents = filteredEvents.filter(event => {
+        const eventProbability = event.probability ?? 100;
+        return Math.random() * 100 <= eventProbability;
+    });
+
+    if (possibleEvents.length === 0) return;
+
+    // Randomly select an event from the filtered list
+    const selectedEvent = possibleEvents[Math.floor(Math.random() * possibleEvents.length)];
+
+    Alert.alert("Random Event!", selectedEvent.text);
+
+    // Function to handle array or single values
+    const getEffectValue = (effect: number | number[]): number => 
+        Array.isArray(effect) ? effect[Math.floor(Math.random() * effect.length)] : effect;
+
+    if (selectedEvent.effect.time) get().deductTime(getEffectValue(selectedEvent.effect.time));
+    if (selectedEvent.effect.energy) get().spendEnergy(Math.abs(getEffectValue(selectedEvent.effect.energy)));
+    if (selectedEvent.effect.xp) get().addXP(getEffectValue(selectedEvent.effect.xp));
+},
+
+
   endDay: async () => {
     const currentDateStr = get().inGameDate;
     if (!currentDateStr) return;
-  
+
     // Progress in-game date by 1 day
     const currentDate = new Date(currentDateStr);
     currentDate.setDate(currentDate.getDate() + 1);
     const newDateString = currentDate.toISOString();
-  
+
     set({ inGameDate: newDateString, time: "06:00 AM", energy: 100 });
     await AsyncStorage.setItem("inGameDate", newDateString);
     await AsyncStorage.setItem("time", "06:00 AM");
     await AsyncStorage.setItem("energy", JSON.stringify(100));
-  
+
     // Load previously completed tasks from storage
     const storedCompletedTasks = await AsyncStorage.getItem("completedTasks");
     let completedTasksData: Record<string, string> = storedCompletedTasks ? JSON.parse(storedCompletedTasks) : {};
-  
-    // Define reset cooldown per frequency
-    const resetCooldowns: Record<string, number> = {
-      daily: 1,
-      threePerWeek: 2,
-      weekly: 7,
-      biweekly: 14,
-      monthly: 30,
-      biannually: 180,
-      yearly: 365,
-    };
-  
+
     const updatedCompletedTasks: Record<string, string> = { ...completedTasksData }; // Preserve existing data
     const now = new Date(newDateString);
-  
-    // Loop through all completed tasks
+
     for (const task of tasksData) {
-      const taskId = task.id;
-      const lastCompletedStr = completedTasksData[taskId];
-  
-      if (lastCompletedStr) {
-        const lastCompletedDate = new Date(lastCompletedStr);
-        const diffDays = Math.floor((now.getTime() - lastCompletedDate.getTime()) / (1000 * 60 * 60 * 24));
-  
-        // Get the cooldown time for this task
-        const taskCooldown = resetCooldowns[task.frequency];
-  
-        // If task cooldown is reached, remove it from completed list
-        if (taskCooldown !== undefined && diffDays >= taskCooldown) {
-          delete updatedCompletedTasks[taskId];
+        const taskId = task.id;
+        const lastCompletedStr = completedTasksData[taskId];
+
+        if (lastCompletedStr) {
+            const lastCompletedDate = new Date(lastCompletedStr);
+            const diffDays = Math.floor((now.getTime() - lastCompletedDate.getTime()) / (1000 * 60 * 60 * 24));
+
+            const taskCooldown = taskResetDays[task.frequency];
+
+            if (taskCooldown !== undefined && diffDays >= taskCooldown) {
+                delete updatedCompletedTasks[taskId];
+            }
         }
-      }
     }
-  
+
     // Save the updated completed tasks list
     set({ completedTasks: updatedCompletedTasks });
     await AsyncStorage.setItem("completedTasks", JSON.stringify(updatedCompletedTasks));
-  },
-  
+
+    // 🎲 5% Probability to Trigger an End-Day Random Event
+    const randomChance = Math.random() * 100; // Generates a number between 0 and 100
+    if (randomChance <= 3) {
+        get().triggerRandomEvent(undefined, true);
+    }
+},
 
   progressDay: async () => {
     await get().endDay();
