@@ -16,7 +16,8 @@ export default function HomeScreen() {
     resetXp,
     resetGame,
     getLevelTitle,
-    resetTasks
+    resetTasks,
+    triggerRandomEvent
     } = useGame();
   const [userName, setUserName] = useState<string | null>(null);
   const [userAge, setUserAge] = useState<number | null>(null);
@@ -100,6 +101,13 @@ export default function HomeScreen() {
         style={{ marginTop: 20, backgroundColor: "#ff0000", padding: 10, borderRadius: 8 }}
       >
         <Text style={{ color: "white", fontSize: 18 }}>Reset XP</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity 
+        onPress={triggerRandomEvent}
+        style={{ marginTop: 20, backgroundColor: "#ffcc00", padding: 10, borderRadius: 8 }}
+      >
+        <Text style={{ color: "black", fontSize: 18 }}>Trigger Random Event (Debug)</Text>
       </TouchableOpacity>
 
       <TouchableOpacity 
