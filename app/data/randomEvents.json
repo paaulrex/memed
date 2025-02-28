@@ -1,0 +1,249 @@
+[
+  {
+    "id": "1",
+    "text": "Friend Needs a Ride",
+    "effect": {
+      "time": 30,
+      "energy": 5,
+      "xp": 5
+    },
+    "frequency": "random",
+    "completed": false,
+    "triggerTaskIds": ["7", "14", "20"],
+    "probability": 0.05
+  },
+  {
+    "id": "2",
+    "text": "Sick Day",
+    "effect": {
+      "time": 360,
+      "energy": 60,
+      "xp": 0
+    },
+    "frequency": "random",
+    "completed": false,
+    "triggerTaskIds": ["ALL"],
+    "probability": 0.15
+  },
+  {
+    "id": "3",
+    "text": "Bonus at Work",
+    "effect": {
+      "time": 10,
+      "energy": 5,
+      "xp": 10
+    },
+    "frequency": "random",
+    "completed": false,
+    "triggerTaskIds": ["7"],
+    "probability": 0.02
+  },
+  {
+    "id": "4",
+    "text": "Friend Invites You Out",
+    "effect": {
+      "time": 150,
+      "energy": 10,
+      "xp": 10
+    },
+    "frequency": "random",
+    "completed": false,
+    "triggerTaskIds": ["ALL"],
+    "probability": 0.2
+  },
+  {
+    "id": "5",
+    "text": "Car Accident (Minor)",
+    "effect": {
+      "time": 60,
+      "energy": 10,
+      "xp": 0
+    },
+    "frequency": "random",
+    "completed": false,
+    "triggerTaskIds": ["7", "14", "20"],
+    "probability": 0.025
+  },
+  {
+    "id": "6",
+    "text": "Internet Goes Down",
+    "effect": {
+      "time": 30,
+      "energy": 5,
+      "xp": 0
+    },
+    "frequency": "random",
+    "completed": false,
+    "triggerTaskIds": ["ALL"],
+    "probability": 0.005
+  },
+  {
+    "id": "7",
+    "text": "Promotion at Work",
+    "effect": {
+      "time": 15,
+      "energy": 5,
+      "xp": 20
+    },
+    "frequency": "random",
+    "completed": false,
+    "triggerTaskIds": ["7"],
+    "probability": 0.015
+  },
+  {
+    "id": "8",
+    "text": "Pet Gets Sick",
+    "effect": {
+      "time": 120,
+      "energy": 15,
+      "xp": 0
+    },
+    "frequency": "random",
+    "completed": false,
+    "triggerTaskIds": ["ALL"],
+    "probability": 0.007
+  },
+  {
+    "id": "9",
+    "text": "Stuck in Traffic",
+    "effect": {
+      "time": 60,
+      "energy": 8,
+      "xp": 0
+    },
+    "frequency": "random",
+    "completed": false,
+    "triggerTaskIds": ["7", "14", "20", "21", "23"],
+    "probability": 0.2
+  },
+  {
+    "id": "10",
+    "text": "Good Weather! Extra Energy",
+    "effect": {
+      "time": 0,
+      "energy": [-5, -10, -15],
+      "xp": 5
+    },
+    "frequency": "random",
+    "completed": false,
+    "triggerTaskIds": ["ALL"],
+    "probability": 0.18
+  },
+  {
+    "id": "11",
+    "text": "Flat Tire",
+    "effect": {
+      "time": 60,
+      "energy": 15,
+      "xp": 0
+    },
+    "frequency": "random",
+    "completed": false,
+    "triggerTaskIds": ["7", "14", "20", "21", "23"],
+    "probability": 0.07
+  },
+  {
+    "id": "12",
+    "text": "You Pressed Snooze too Many Times, and Now You're Late",
+    "effect": {
+      "time": [15, 30, 45, 60],
+      "energy": 7,
+      "xp": 0
+    },
+    "frequency": "random",
+    "completed": false,
+    "triggerTaskIds": ["NONE"],
+    "probability": 0.03
+  },
+  {
+    "id": "13",
+    "text": "Unexpected Family Visit",
+    "effect": {
+      "time": 120,
+      "energy": 13,
+      "xp": 7
+    },
+    "frequency": "random",
+    "completed": false,
+    "triggerTaskIds": ["ALL"],
+    "probability": 0.07
+  },
+  {
+    "id": "14",
+    "text": "Lose Your Wallet",
+    "effect": {
+      "time": 45,
+      "energy": 15,
+      "xp": 0
+    },
+    "frequency": "random",
+    "completed": false,
+    "triggerTaskIds": ["ALL"],
+    "probability": 0.1
+  },
+  {
+    "id": "15",
+    "text": "Power Outage",
+    "effect": {
+      "time": [15, 30, 45, 60, 120],
+      "energy": 9,
+      "xp": 0
+    },
+    "frequency": "random",
+    "completed": false, 
+    "triggerTaskIds": ["ALL"],
+    "probability": 0.005
+  },
+  {
+    "id": "16",
+    "text": "Forgot to Set Alarm, Woke Up Late",
+    "effect": {
+      "time": [5, 10, 15, 30],
+      "energy": [0, 2, 4, 7],
+      "xp": [2, 1, 1, 0]
+    },
+    "frequency": "random",
+    "completed": false,
+    "triggerTaskIds": ["NONE"],
+    "probability": 0.03
+  },
+  {
+    "id": "17",
+    "text": "Unplanned Nap",
+    "effect": {
+      "energy": 0,
+      "time": [15, 30, 45, 60, 120],
+      "xp": [5, 4, 3, 2, 1]
+    },
+    "frequency": "random",
+    "completed": false,
+    "triggerTaskIds": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "15", "16", "17", "18", "24"],
+    "probability": 0.09
+  },
+  {
+    "id": "18",
+    "text": "Spilled Coffee on Yourself",
+    "effect": {
+      "time": 30,
+      "energy": 8,
+      "xp": 0
+    },
+    "frequency": "random",
+    "completed": false,
+    "triggerTaskIds": ["ALL"],
+    "probability": 0.009
+  },
+  {
+    "id": "19",
+    "text": "Misplaced Keys",
+    "effect": {
+      "time": 15,
+      "energy": 5,
+      "xp": 0
+    },
+    "frequency": "random",
+    "completed": false,
+    "triggerTaskIds": ["7", "14", "20", "21", "23"],
+    "probability": 0.005
+  }
+]
