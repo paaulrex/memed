@@ -6,7 +6,7 @@ import { useGame } from "./store/useGame";
 import tasksData from "./data/tasks.json";
 
 export default function TaskScreen() {
-  const { addXP, deductTime, time, spendEnergy, energy, inGameDate } = useGame();
+  const { addXP, deductTime, time, spendEnergy, energy, inGameDate, triggerRandomEvent } = useGame();
   const [tasks, setTasks] = useState(tasksData);
   const [xpGained, setXpGained] = useState(0);
   const [timeAfterTask, setTimeAfterTask] = useState(time);
@@ -100,6 +100,10 @@ export default function TaskScreen() {
       task.id === id ? { ...task, completed: true } : task
     );
 
+    if (Math.random() < 0.2) { 
+      triggerRandomEvent();
+    }
+
     setTasks(updatedTasks);
     addXP(xpAmount);
 
@@ -167,7 +171,8 @@ export default function TaskScreen() {
         renderItem={({ item }) => (
           <TouchableOpacity
             style={{
-              padding: 15,
+              padding: 5,
+              paddingLeft: 20,
               marginBottom: 10,
               borderRadius: 8,
               backgroundColor: item.completed ? "#444" : "#1e90ff",
@@ -178,11 +183,19 @@ export default function TaskScreen() {
             <Text
               style={{
                 color: "white",
-                fontSize: 18,
+                fontSize: 20,
                 textDecorationLine: item.completed ? "line-through" : "none",
               }}
             >
-              {item.text} (⏳ -{item.time} min, 🔋 -{item.energy} Energy)
+              {item.text}
+            </Text>
+            <Text
+              style={{
+                color: "white",
+                fontSize: 14,
+                textDecorationLine: item.completed ? "line-through" : "none",
+              }}>
+                ⏳ -{item.time} min  🔋 {item.energy < 0 ? `+${Math.abs(item.energy)}` : `-${item.energy}`} Energy
             </Text>
           </TouchableOpacity>
         )}
