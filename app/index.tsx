@@ -51,8 +51,8 @@ export default function HomeScreen() {
   return (
     <ImageBackground source={require("../assets/images/background.png")} style={styles.background} resizeMode="cover">
       <View style={styles.container}>
-        <Text style={styles.title}>M.E.M.E.D.</Text>
-        <Text style={styles.subtitle}>Minimal Effort, Maximum Existential Dread</Text>
+        <Text style={styles.title}>Adulting Game</Text>
+        <Text style={styles.subtitle}>Earn XP by doing simple adulting tasks</Text>
 
         <Text style={styles.dateText}>📅 {formattedDate}</Text>
 
@@ -71,25 +71,29 @@ export default function HomeScreen() {
           <Text style={styles.buttonText}>End Day</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => addXP(10)} style={styles.buttonGreen}>
-          <Text style={styles.buttonText}>Gain 10 XP</Text>
-        </TouchableOpacity>
+        <View style={styles.devContainer}>
+          <Text style={styles.divider}>----- DEV MODE -----</Text>
 
-        <TouchableOpacity onPress={resetXp} style={styles.buttonDarkRed}>
-          <Text style={styles.buttonText}>Reset XP</Text>
-        </TouchableOpacity>
+          <TouchableOpacity onPress={() => addXP(10)} style={styles.buttonGreen}>
+            <Text style={styles.buttonText}>Gain 10 XP</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity onPress={triggerRandomEvent} style={styles.buttonYellow}>
-          <Text style={styles.buttonTextDark}>Trigger Random Event (Debug)</Text>
-        </TouchableOpacity>
+          <TouchableOpacity onPress={resetXp} style={styles.buttonDarkRed}>
+            <Text style={styles.buttonText}>Reset XP</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity onPress={resetTasks} style={styles.buttonDarkRed}>
-          <Text style={styles.buttonText}>Reset Task List</Text>
-        </TouchableOpacity>
+          <TouchableOpacity onPress={triggerRandomEvent} style={styles.buttonYellow}>
+            <Text style={styles.buttonTextDark}>Trigger Random Event (Debug)</Text>
+          </TouchableOpacity>
 
-        <TouchableOpacity onPress={resetGame} style={styles.buttonDarkRed}>
-          <Text style={styles.buttonText}>Reset Game & User Info</Text>
-        </TouchableOpacity>
+          <TouchableOpacity onPress={resetTasks} style={styles.buttonDarkRed}>
+            <Text style={styles.buttonText}>Reset Task List</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={resetGame} style={styles.buttonDarkRed}>
+            <Text style={styles.buttonText}>Reset Game & User Info</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </ImageBackground>
   );
@@ -103,11 +107,11 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    width: "90%",
+    width: "95%",
     alignSelf: "center",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.5)", // Transparent black overlay
+    backgroundColor: "rgba(0, 0, 0, 0.85)", // Transparent black overlay
     borderRadius: 10,
     padding: 20,
     marginVertical: 30,
@@ -118,9 +122,18 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   subtitle: {
-    color: "#bbb",
+    color: "#fff",
     fontSize: 20,
     marginTop: 10,
+  },
+  divider: {
+    color: "#000",
+    fontWeight:"bold",
+    fontSize: 24,
+    marginTop: 20,
+    marginHorizontal: "auto",
+    textAlign: "center",
+    backgroundColor: "#fff"
   },
   dateText: {
     color: "white",
@@ -141,6 +154,11 @@ const styles = StyleSheet.create({
     height: 10,
     borderRadius: 5,
     backgroundColor: "#333",
+  },
+  devContainer: {
+    flex: 0,
+    marginHorizontal: "auto",
+    justifyContent: "center",
   },
   levelText: {
     color: "white",
