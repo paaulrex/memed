@@ -24,7 +24,7 @@ export default function EnterInfoScreen() {
 
   return (
     <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={{ flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#111", padding: 20 }}>
-      <Text style={{ color: "white", fontSize: 22, marginBottom: 15 }}>Welcome!</Text>
+      <Text style={{ color: "white", fontSize: 22, marginBottom: 15 }}>Welcome to M.E.M.E.D!</Text>
       <Text style={{ color: "#bbb", fontSize: 16, textAlign: "center", marginBottom: 10 }}>
         Before you start, tell us a bit about yourself.
       </Text>

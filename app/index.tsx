@@ -51,8 +51,8 @@ export default function HomeScreen() {
   return (
     <ImageBackground source={require("../assets/images/background.png")} style={styles.background} resizeMode="cover">
       <View style={styles.container}>
-        <Text style={styles.title}>Adulting Game</Text>
-        <Text style={styles.subtitle}>Earn XP by doing simple adulting tasks</Text>
+        <Text style={styles.title}>M.E.M.E.D</Text>
+        <Text style={styles.subtitle}>Minimal Effort, Maximum Existential Dread</Text>
 
         <Text style={styles.dateText}>📅 {formattedDate}</Text>
 
