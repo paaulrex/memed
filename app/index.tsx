@@ -82,9 +82,13 @@ export default function HomeScreen() {
             <Text style={styles.buttonText}>Reset XP</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={triggerRandomEvent} style={styles.buttonYellow}>
-            <Text style={styles.buttonTextDark}>Trigger Random Event (Debug)</Text>
+          <TouchableOpacity 
+            onPress={() => triggerRandomEvent()}
+            style={{ marginTop: 20, backgroundColor: "#ffcc00", padding: 10, borderRadius: 8 }}
+          >
+            <Text style={{ color: "black", fontSize: 18 }}>Trigger Random Event (Debug)</Text>
           </TouchableOpacity>
+
 
           <TouchableOpacity onPress={resetTasks} style={styles.buttonDarkRed}>
             <Text style={styles.buttonText}>Reset Task List</Text>
