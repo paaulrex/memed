@@ -232,5 +232,14 @@
     "time": 2,
     "energy": -20,
     "completed": false
+  },
+  {
+    "id": "27",
+    "text": "Brush Your Teeth",
+    "frequency": "daily",
+    "xp": 3,
+    "time": 5,
+    "energy": 2,
+    "completed": false
   }
 ]
