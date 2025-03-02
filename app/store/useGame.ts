@@ -173,8 +173,8 @@ export const useGame = create<GameState>((set, get) => ({
 
     // Apply probability check
     const possibleEvents = filteredEvents.filter(event => {
-        const eventProbability = event.probability ?? 100;
-        return Math.random() * 100 <= eventProbability;
+        const eventProbability = event.probability * 100 || 1;
+        return Math.random() <= eventProbability;
     });
 
     if (possibleEvents.length === 0) return;
